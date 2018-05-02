@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TreeView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<GridPane fx:id="mainGrid" hgap="5.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" vgap="5.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MigrationController">
+  <columnConstraints>
+      <ColumnConstraints maxWidth="362.33331298828125" minWidth="10.0" percentWidth="5.0" prefWidth="112.66668955485028" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="362.33331298828125" minWidth="500.0" prefWidth="346.0" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="333.0000152587891" minWidth="500.0" prefWidth="134.0000000000001" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="269.66668701171875" minWidth="0.0" percentWidth="5.0" prefWidth="74.0" />
+      <ColumnConstraints maxWidth="92.66666666666674" minWidth="0.0" prefWidth="92.66666666666674" />
+      <ColumnConstraints maxWidth="86.66666666666674" minWidth="0.0" prefWidth="0.0" />
+      <ColumnConstraints maxWidth="86.66666666666674" minWidth="10.0" prefWidth="100.0" />
+  </columnConstraints>
+  <rowConstraints>
+      <RowConstraints maxHeight="194.66668701171875" minHeight="10.0" percentHeight="5.0" prefHeight="63.33332967758179" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="194.66668701171875" minHeight="0.6666717529296804" percentHeight="5.0" prefHeight="53.333328247070305" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="194.66668701171875" minHeight="10.0" prefHeight="34.666676839192704" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="366.6666685740153" minHeight="8.999994913736984" prefHeight="199.99998982747397" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="366.6666685740153" minHeight="10.0" prefHeight="40.99999491373694" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="366.6666685740153" minHeight="10.0" percentHeight="5.0" prefHeight="178.33333841959637" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <Label alignment="TOP_LEFT" prefHeight="34.0" text="SVN to Git Migration" textAlignment="CENTER" underline="true" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
+         <font>
+            <Font name="Bell MT" size="28.0" />
+         </font>
+      </Label>
+      <TextArea fx:id="processOutputTextArea" editable="false" maxWidth="1.7976931348623157E308" minWidth="500.0" prefHeight="129.0" prefWidth="346.0" text="once the action is started, \n the output of the action will be shown here" GridPane.columnIndex="1" GridPane.rowIndex="4" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS" />
+      <HBox fillHeight="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="25.0" prefWidth="627.0" spacing="15.0" GridPane.columnIndex="1" GridPane.columnSpan="5" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="TOP">
+         <children>
+            <Button fx:id="chooseMapperFileBtn" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#browseMapperFileAction" prefHeight="25.0" text="Choose svn and git mapper file" HBox.hgrow="ALWAYS">
+               <font>
+                  <Font name="Arial Bold" size="10.0" />
+               </font>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </Button>
+            <Button fx:id="chooseMigrationFolderBtn" alignment="CENTER" mnemonicParsing="false" onAction="#openMigrationDirectory" prefHeight="25.0" text="Choose migration floder" textAlignment="CENTER">
+               <font>
+                  <Font name="Arial Bold" size="10.0" />
+               </font>
+            </Button>
+            <ComboBox fx:id="chooseSvnRepoSeletBox" onAction="#onChooseSvnRepoSeletBoxChanges" prefHeight="25.0" promptText="Select SVN Repo to work with" />
+            <ComboBox fx:id="chooseMigrationActionSelectBox" nodeOrientation="LEFT_TO_RIGHT" onAction="#onMigrationActionChanges" prefHeight="25.0" prefWidth="138.0" promptText="Select action" />
+         </children>
+         <GridPane.margin>
+            <Insets bottom="5.0" right="5.0" top="5.0" />
+         </GridPane.margin>
+      </HBox>
+      <GridPane minWidth="400.0" prefHeight="175.0" prefWidth="338.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="385.3333511352539" minWidth="10.0" prefWidth="99.33330535888672" />
+          <ColumnConstraints halignment="RIGHT" maxWidth="415.9999974568685" minWidth="0.0" prefWidth="400.6666946411133" />
+            <ColumnConstraints />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label prefHeight="17.0" prefWidth="182.0" text="Summary" textFill="#bf6d0f" GridPane.columnSpan="2" GridPane.halignment="LEFT">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label text="Mapper File" GridPane.rowIndex="1" />
+            <Label text="Migration Folder" GridPane.rowIndex="2" />
+            <Label text="Svn Repo" GridPane.rowIndex="3" />
+            <Label text="Git Repo" GridPane.rowIndex="4" />
+            <Label text="Selected Action" GridPane.rowIndex="5" />
+            <Label fx:id="selectedMapperFile" prefHeight="17.0" prefWidth="416.0" text="NOT_SELECTED" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.halignment="LEFT" GridPane.rowIndex="1">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+            <Label fx:id="selectedMigrationDirectory" prefHeight="17.0" prefWidth="417.0" text="NOT_SELECTED" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.halignment="LEFT" GridPane.rowIndex="2">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+            <Label fx:id="selectedSvnRepo" prefHeight="17.0" prefWidth="414.0" text="NOT_SELECTED" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.halignment="LEFT" GridPane.rowIndex="3">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+            <Label fx:id="selectedAction" prefHeight="17.0" prefWidth="422.0" text="NOT_SELECTED" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.halignment="LEFT" GridPane.rowIndex="5">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+            <Button fx:id="startMigrationActionBtn" mnemonicParsing="false" onAction="#startMigrationAction" prefHeight="30.0" prefWidth="179.0" text="Start Process" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="6">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </Button>
+            <TextField fx:id="selectedGitRepo" prefHeight="23.0" prefWidth="409.0" text="NOT_SELECTED" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="4">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </TextField>
+         </children>
+      </GridPane>
+      <VBox GridPane.columnIndex="2" GridPane.rowIndex="4">
+         <children>
+            <TreeView fx:id="directoryView1" editable="true" prefHeight="288.0" prefWidth="500.0" />
+         </children>
+      </VBox>
+      <GridPane GridPane.columnIndex="2" GridPane.rowIndex="3">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="245.33331298828125" minWidth="10.0" prefWidth="87.33332061767578" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="412.6666793823242" minWidth="10.0" prefWidth="412.6666793823242" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints maxHeight="89.0" minHeight="10.0" prefHeight="49.333339055379234" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="89.0" minHeight="10.0" prefHeight="49.333339055379234" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="120.99997202555338" minHeight="0.0" prefHeight="39.666660944620766" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="156.33332443237305" minHeight="59.000027974446596" prefHeight="109.66667683919269" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label prefHeight="17.0" prefWidth="305.0" text="SVN Server Info/Credentials" GridPane.columnSpan="2" GridPane.halignment="CENTER" />
+            <Label prefHeight="17.0" prefWidth="89.0" text="Usename" GridPane.rowIndex="2" />
+            <Label prefHeight="17.0" prefWidth="75.0" text="Password" GridPane.rowIndex="3" GridPane.valignment="TOP" />
+            <Label text="Server URL" GridPane.rowIndex="1" />
+            <TextField fx:id="svnServerUrl" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="TOP" />
+            <TextField fx:id="svnUsername" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.valignment="TOP" />
+            <PasswordField fx:id="svnPassword" GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.valignment="TOP" />
+         </children>
+      </GridPane>
+   </children>
+</GridPane>
